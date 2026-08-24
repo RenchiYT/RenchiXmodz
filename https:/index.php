@@ -1,3 +1,8 @@
+Ah, the `index.php` was truncated in the repo too! Here's the **full HTML landing page** — copy-paste ready:
+
+## `index.php` — FULL VERSION
+
+```php
 <?php require_once 'config.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -40,45 +45,148 @@
             text-decoration: none;
             transition: all 0.3s;
         }
-        .btn-discord {
-            background: #5865F2; color: white;
-        }
+        .btn-discord { background: #5865F2; color: white; }
         .btn-discord:hover { background: #4752C4; }
         .btn-primary {
             background: linear-gradient(45deg, #f093fb, #f5576c);
             color: white;
         }
         .btn-primary:hover { opacity: 0.9; }
-        .btn-danger {
-            background: #e74c3c; color: white;
+
+        .hero {
+            text-align: center;
+            padding: 60px 20px;
         }
-        .btn-danger:hover { background: #c0392b; }
+        .hero h2 { font-size: 2em; margin-bottom: 15px; }
+        .hero p { color: #aaa; font-size: 1.1em; max-width: 600px; margin: 0 auto 30px; line-height: 1.6; }
         
-        input[type="text"], input[type="password"], input[type="email"] {
-            width: 100%;
-            padding: 14px 16px;
-            border: 1px solid rgba(255,255,255,0.2);
-            border-radius: 8px;
-            background: rgba(0,0,0,0.3);
-            color: white;
-            font-size: 1em;
-            margin: 8px 0;
-        }
-        input:focus { outline: none; border-color: #f5576c; }
-        
-        label { display: block; margin-top: 12px; color: #ccc; font-size: 0.9em; }
-        
-        .server-list {
+        .features {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            margin: 20px 0;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 40px 0;
         }
-        .server-card {
+        .feature-box {
             background: rgba(255,255,255,0.05);
             border-radius: 12px;
-            padding: 20px;
+            padding: 25px;
             text-align: center;
             border: 1px solid rgba(255,255,255,0.05);
         }
-        .server-card .flag { font-size: 2em; margin-bottom: 8px; }
+        .feature-box .icon { font-size: 2.5em; margin-bottom: 12px; }
+        .feature-box h3 { margin-bottom: 8px; font-size: 1.1em; }
+        .feature-box p { color: #aaa; font-size: 0.9em; line-height: 1.5; }
+
+        .cta-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 30px 0;
+        }
+        .cta-buttons .btn { min-width: 200px; text-align: center; }
+
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            color: #555;
+            font-size: 0.9em;
+        }
+        footer a { color: #f5576c; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1><?= SITE_NAME ?></h1>
+            <p>Free Fire Proxy Server — Reduce lag, unlock regions, play smoother</p>
+        </div>
+
+        <div class="hero">
+            <h2>🚀 Optimize Your Free Fire Experience</h2>
+            <p>
+                Route your game traffic through our high-speed proxy servers. 
+                Reduce ping, bypass region locks, and enjoy a smoother Free Fire experience.
+                No root required. No complicated setup.
+            </p>
+            <div class="cta-buttons">
+                <a href="register.php" class="btn btn-primary">Get Started — Register</a>
+                <a href="login.php" class="btn btn-discord" style="background:rgba(255,255,255,0.1);">Login</a>
+            </div>
+        </div>
+
+        <div class="features">
+            <div class="feature-box">
+                <div class="icon">🌍</div>
+                <h3>Multiple Regions</h3>
+                <p>Servers in US, Europe, Singapore, and more. Pick the closest one for lowest ping.</p>
+            </div>
+            <div class="feature-box">
+                <div class="icon">🔒</div>
+                <h3>No Root Required</h3>
+                <p>Works on any Android device. Just install Free Fire, paste a config file, and play.</p>
+            </div>
+            <div class="feature-box">
+                <div class="icon">⚡</div>
+                <h3>Reduced Lag</h3>
+                <p>Optimized routing reduces packet loss and lowers ping for smoother gameplay.</p>
+            </div>
+            <div class="feature-box">
+                <div class="icon">🔓</div>
+                <h3>Region Unlock</h3>
+                <p>Access region-locked events, items, and servers that aren't available in your country.</p>
+            </div>
+            <div class="feature-box">
+                <div class="icon">🛡️</div>
+                <h3>Safe & Secure</h3>
+                <p>Encrypted tunnel between your device and our servers. Your data stays private.</p>
+            </div>
+            <div class="feature-box">
+                <div class="icon">📱</div>
+                <h3>Works on All Phones</h3>
+                <p>Compatible with both Free Fire and Free Fire Max on any Android device.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2 style="text-align:center; margin-bottom:25px;">📲 How It Works</h2>
+            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;text-align:center;">
+                <div>
+                    <div style="font-size:2em;margin-bottom:8px;">1️⃣</div>
+                    <h3>Install & Prepare</h3>
+                    <p style="color:#aaa;font-size:0.9em;">Install Free Fire + MT Manager. Create a guest account.</p>
+                </div>
+                <div>
+                    <div style="font-size:2em;margin-bottom:8px;">2️⃣</div>
+                    <h3>Paste Config</h3>
+                    <p style="color:#aaa;font-size:0.9em;">Download our config file and paste it into the game folder using MT Manager.</p>
+                </div>
+                <div>
+                    <div style="font-size:2em;margin-bottom:8px;">3️⃣</div>
+                    <h3>Play!</h3>
+                    <p style="color:#aaa;font-size:0.9em;">Enter your UID on our dashboard, activate your session, and enjoy smoother gameplay.</p>
+                </div>
+            </div>
+            <div style="text-align:center;margin-top:25px;">
+                <a href="register.php" class="btn btn-primary">Start Now — It's Free</a>
+            </div>
+        </div>
+
+        <div class="card" style="background:rgba(245,87,108,0.1);border-color:#f5576c;">
+            <h2 style="text-align:center;margin-bottom:15px;">⚠️ Disclaimer</h2>
+            <p style="color:#aaa;text-align:center;line-height:1.6;">
+                This proxy tool is for <strong>educational and testing purposes only</strong>. 
+                Use at your own risk. Always use a <strong>secondary guest account</strong> — never your main Free Fire account. 
+                Garena's Terms of Service may prohibit the use of third-party proxy tools.
+            </p>
+        </div>
+
+        <footer>
+            <p><?= SITE_NAME ?> &copy; 2026 | <a href="#">Terms of Service</a> | <a href="#">Privacy Policy</a></p>
+        </footer>
+    </div>
+</body>
+</html>
+```
+
+That's the complete landing page with all the HTML, CSS sections, features grid, how-it-works section, and buttons to register/login. Just save this as `index.php` and upload it to your server.
