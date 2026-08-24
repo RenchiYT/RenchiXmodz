@@ -275,4 +275,72 @@ function getFlag($code) {
             <table>
                 <tr>
                     <th>UID</th>
-                    <th>Server
+                    <th>Server</th>
+                    <tr><td><strong>Token</strong></td><td style="font-family:monospace;font-size:0.9em;"><?= htmlspecialchars($s['proxy_token']) ?></td></tr>
+                <tr><td><strong>Server</strong></td><td><?= htmlspecialchars($s['server_name'] ?? 'N/A') ?></td></tr>
+                <tr><td><strong>Status</strong></td><td>
+                    <?php 
+                    $badge = 'badge-expired';
+                    if ($s['status'] === 'active') $badge = 'badge-active';
+                    if ($s['status'] === 'revoked') $badge = 'badge-revoked';
+                    ?>
+                    <span class="badge <?= $badge ?>"><?= $s['status'] ?></span>
+                </td></tr>
+                <tr><td><strong>Expires</strong></td><td><?= htmlspecialchars($s['expires_at']) ?></td></tr>
+            </table>
+            <?php endforeach; ?>
+            <?php else: ?>
+            <p style="color:#777;text-align:center;padding:30px;">No sessions yet. Create one above.</p>
+            <?php endif; ?>
+        </div>
+
+        <!-- Download Section -->
+        <div class="card">
+            <h2>📲 Setup Instructions</h2>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
+                <div style="background:rgba(255,255,255,0.05);padding:20px;border-radius:12px;">
+                    <h3 style="color:#f5576c;">Step 1</h3>
+                    <p>Download Free Fire (or FF Max) from Play Store. Install it but <strong>do not open it yet</strong>.</p>
+                </div>
+                <div style="background:rgba(255,255,255,0.05);padding:20px;border-radius:12px;">
+                    <h3 style="color:#f5576c;">Step 2</h3>
+                    <p>Download <strong>MT Manager</strong> from Play Store.</p>
+                </div>
+                <div style="background:rgba(255,255,255,0.05);padding:20px;border-radius:12px;">
+                    <h3 style="color:#f5576c;">Step 3</h3>
+                    <p>Open FF/FF Max once. Create a <strong>Guest account</strong>. Set your server. Then close the game completely.</p>
+                </div>
+                <div style="background:rgba(255,255,255,0.05);padding:20px;border-radius:12px;">
+                    <h3 style="color:#f5576c;">Step 4</h3>
+                    <p>Open MT Manager. Navigate to: <code>Android → data → com.dts.freefireth → files</code> and paste the config file there.</p>
+                </div>
+                <div style="background:rgba(255,255,255,0.05);padding:20px;border-radius:12px;">
+                    <h3 style="color:#f5576c;">Step 5</h3>
+                    <p>Open FF/FF Max again. You'll see an <strong>error with your UID</strong>. Copy that UID.</p>
+                </div>
+                <div style="background:rgba(255,255,255,0.05);padding:20px;border-radius:12px;">
+                    <h3 style="color:#f5576c;">Step 6</h3>
+                    <p>Come to this dashboard, enter your UID, select a server, and click <strong>"Generate Proxy Session"</strong>.</p>
+                </div>
+            </div>
+            <br>
+            <a href="#" class="btn btn-primary" onclick="alert('Config file link would go here')">📥 Download Config File</a>
+        </div>
+    </div>
+
+    <script>
+    function selectServer(el) {
+        document.querySelectorAll('.server-card').forEach(c => c.classList.remove('selected'));
+        el.classList.add('selected');
+        document.getElementById('selectedServer').value = el.dataset.id;
+    }
+    // Auto-select first server if none selected
+    document.addEventListener('DOMContentLoaded', function() {
+        const first = document.querySelector('.server-card');
+        if (first && !document.getElementById('selectedServer').value) {
+            selectServer(first);
+        }
+    });
+    </script>
+</body>
+</html>
